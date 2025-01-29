@@ -1,0 +1,19 @@
+\section{Related Works} \label{sec:relatedWorks}
+
+One of the fundamental concepts in data science is the dataframe. In the Python ecosystem, Pandas\cite{mckinney2011pandas} was created as a Python derivative of the R \textit{data.frame} class. However, one significant limitation of Pandas is that it can only execute on a single core. In contrast, frameworks like Apache Spark, a Java Virtual Machine (JVM) framework, offer similar capabilities and improved performance and support the dataframe abstraction. One notable drawback of Spark is that it operates as a framework rather than a standalone Python library. While there is support for Python through PySpark, its usage necessitates the configuration, setup, and deployment of a Spark cluster. The JVM-to-Python translations introduced by Spark add a substantial performance bottleneck compared to the C++-to-Python translation implemented by Cylon and other high-performance Python libraries, which are more lightweight\cite{abeykoon2020data}.
+
+Similar to the Cylon library, the Twister2 toolkit developed by Kamburugamuwe et al. is implemented using the Bulk Synchronous Parallel (BSP) architecture, based on the observed advantages of scalability and performance. It also incorporates a dataframe API implemented in Java\cite{perera2023depth}. A crucial abstraction introduced by Twister2 is TSets, a concept similar to dataframes or equivalently RDDs in Apache Spark or datasets in Apache Flink. Twister2 is regarded as a foundational step towards high-performance data engineering research and serves as a direct precursor to Cylon\cite{pererathesis}.
+
+The Dask, Modin, and Ray Python distributed dataframe packages, built upon the Pandas API, share similar architectural goals with the Cylon architecture.   A related project, Dask-Cudif, provides distribute dataframe capabilities on Nvidia GPUs leveraging both Dask and Pandas to facilitate integration\cite{perera2023depth}.
+
+To address the need for a uniform distributed architecture, Jeff Dean describes Google’s Pathway architecture, which aims to address the future of AI/ML systems as researchers migrate from Single Program Multiple Data (SPMD) to Multiple Program Multiple Data (MPMD). However, this system is closed-source.
+
+In response, the Cylon Radical Pilot has been developed to support the execution of heterogenous workloads on HPCs. \cite{sarker2024radical}
+
+Another related project, Wukong, offers a similar capability including support for AI/ML inference but was built on serverless FaaS, where AWS handles provisioning, scaling, and other undifferentiated activities. This DAG execution framework has demonstrated near-ideal scalability by executing jobs approximately 68 times faster while achieving close to 92 percent cost savings compared to NumPyWren. \cite{carver2020wukong}
+
+A significant challenge in serverless execution, particularly for parallel data processing applications, is data transfer between running functions. Moyer proposes a solution that leverages Nat Traversal via TCP Hole Punching through an external rendezvous server to enable direct TCP connections between a pair of functions. For an experiment involving over a hundred functions, this approach resulted in a performance improvement of 4.7 times compared to using object storage. \cite{moyer2021punching}
+
+A notable difference between Moyer’s work and the FMI library lies in Moyer’s implementation, which utilizes web sockets for communication. In contrast, FMI is developed as a C++ library similar to the Cylon runtime, making it highly applicable to runtime parallel processing tasks on serverless architectures. 
+
+

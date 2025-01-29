@@ -1,0 +1,168 @@
+%\documentclass[sigconf,10pt]{acmart}
+\documentclass[sigconf]{acmart}
+\settopmatter{authorsperrow=4}
+\settopmatter{printacmref=false}	% jin: remove ACM reference format box in the template
+\renewcommand\footnotetextcopyrightpermission[1]{}
+
+\pagenumbering{gobble}
+
+
+\usepackage{verbatim}
+
+\usepackage{listings}
+\usepackage{url}            % simple URL typesetting
+
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+
+%\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+
+\usepackage{textcomp}
+\usepackage{svg}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{graphics}
+\usepackage{titlesec}
+
+
+\lstset{frame=tb,
+  language=python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  captionpos=b,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{magenta},
+  commentstyle=\color{blue},
+  stringstyle=\color{magenta},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+%\settopmatter{printfolios=false}		% -- Arup: no page numbers
+%\renewcommand\footnotetextcopyrightpermission[1]{}
+
+% Copyright
+%\setcopyright{none}
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+%\begin{comment}
+
+\copyrightyear{2024}
+\acmYear{2024}
+\setcopyright{rightsretained}
+\acmConference[Qualification Exam Defense]{Qualification Exam Defense}{December 6, 2:00 $\sim$ 3:00 pm, 2023}{Charlottesville VA, USA}
+\acmBooktitle{Qualification Exam Defense
+(Qualification Exam Defense), December 6, 2:00 $\sim$ 3:00 pm, 2023, Charlottesville VA, USA}
+%\acmPrice{15.00}
+%\acmDOI{10.1145/3576914.3587486}
+%\acmISBN{979-8-4007-0049-1/23/05} %% Arup: Change it
+
+%\end{comment}
+
+%% DOI
+%\acmDOI{10.475/123_4}
+%
+%% ISBN
+%\acmISBN{123-4567-24-567/08/06}
+%
+%%Conference
+%\acmConference[HOTMOBILE'22]{The 23nd International Workshop on Mobile Computing Systems and Applications}{Mar 2022}{Tempe, AZ}
+%\acmYear{2022}
+%\copyrightyear{2022}
+%
+%
+%\acmArticle{4}
+%\acmPrice{15.00}
+%
+%% These commands are optional
+%%\acmBooktitle{Transactions of the ACM Woodstock conference}
+%\editor{Jennifer B. Sartor}
+%\editor{Theo D'Hondt}
+%\editor{Wolfgang De Meuter}
+
+%\input{header}
+%\titlespacing*{\section}
+%{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+
+%\titlespacing*{\subsection}
+%{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+
+\begin{document}
+
+
+
+\title{High-Performance Data Engineering on Amazon Web Services Using Python}
+%\subtitle{Extended Abstract}
+%\subtitlenote{The full version of the author's guide is available as
+%  \texttt{acmart.pdf} document}
+\author{Mills Wellons Staylor, III}
+\email{qad5gv@virginia.edu}
+\affiliation{
+  \institution{University of Virginia}
+  \country{USA}
+}
+
+%\author{Geoffrey Fox}
+%\email{vxj6mb@virginia.edu}
+%\affiliation{
+%  \institution{University of Virginia}
+%	\country{USA}
+%}
+
+
+% The default list of authors is too long for headers}
+%\renewcommand{\shortauthors}{Arup et al.}
+
+%
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10010520.10010553.10010562.10010564</concept_id>
+<concept_desc>AWS~Amazon Web Services/Cloud Computing</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Networks~Cloud Computing}
+\ccsdesc[500]{FMI~Fast Messaging Interface}
+\ccsdesc[500]{UCC~Unified Collective Communication}
+\ccsdesc[500]{UCX~Unified Communication X}
+\ccsdesc[500]{BSP~Bulk Synchronize Parallel}
+
+%  https://doi.org/10.1145/3508396.3512875
+
+\input{tex/abstract}
+\maketitle
+%\pagestyle{plain}
+
+\input{tex/intro.tex}
+\input{tex/relatedwork}
+
+\input{tex/plan.tex}
+
+\input{source/tex/design}
+\input{source/tex/experiment}
+
+\input{tex/future.tex}
+
+\input{tex/conclusion}
+
+
+
+\bibliographystyle{ACM-Reference-Format}
+%\bibliographystyle{abbrv}
+\bibliography{bib/main}
+
+\end{document}

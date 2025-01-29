@@ -1,0 +1,13 @@
+\section{Future Work}
+\label{sec:future}
+\textit{Cylon} implements about 30\% of the operators supported by Pandas and we would like to converge Cylon and Panda operators using a comparative, high-performance API built using Cython.  For example, we have begun to implement the windowing operator and plan to complete that work in the near future.  By utilizing the cost model,  we are able to evaluate data parallel operator patterns to identify bottlenecks in communication operations.  We believe we can improve performance significantly by implementing other algorithms that have lower latency\cite{perera2023depth}.  We also plan to complete implementation of FMI as a Cylon communicator.  This will allow us to execute strong and weak scaling experiments on serverless infrastructure such as AWS Lambda and AWS Fargate.  Additionally and related to communicator support, we would also like to add libfabric as a communicator based on implementations across cloud services based on GPU hardware supported by cloud providers.
+
+A key limitation with AWS Lambda is the upper limit of fifteen minutes for a given function invocation.  With a BSP-styled architecture, this limits the applicability of data parallel processing on this infrastructure based on the time required to process large datasets.  This all falls under the subject of fault tolerance.  We would like to implement a similar checkpointing feature is implemented in the Twister2 library.  This will allow for recovery of unfinished executions based on upper limit time constraints imposed by AWS Lambda.  This will also provide general fault tolerance for MPI-workloads outside of the serverless use case.
+
+%In a previous paper, we measured costs associated with Artificatial Intelligence inference on AWS Lambda.  We clearly demonstrated cost savings by leverage AWS Lambda for this use case\cite{Staylor2024cosmic}.  Additionally, our FMI work was used in University of Virginia's Datascience 5110 graduate class.  Costs were significantly less compared to general AWS usage in a previous semester of the same class.  
+
+
+
+
+
+
